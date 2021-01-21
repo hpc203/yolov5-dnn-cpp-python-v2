@@ -101,9 +101,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--imgpath", type=str, default='bus.jpg', help="image path")
     parser.add_argument('--net_type', default='yolov5s', choices=['yolov5s', 'yolov5l', 'yolov5m', 'yolov5x'])
+    parser.add_argument('--confThreshold', default=0.5, type=float, help='class confidence')
+    parser.add_argument('--nmsThreshold', default=0.5, type=float, help='nms iou thresh')
+    parser.add_argument('--objThreshold', default=0.5, type=float, help='object confidence')
     args = parser.parse_args()
 
-    yolonet = yolov5(args.net_type)
+    yolonet = yolov5(args.net_type, confThreshold=args.confThreshold, nmsThreshold=args.nmsThreshold, objThreshold=args.objThreshold)
     srcimg = cv2.imread(args.imgpath)
     dets = yolonet.detect(srcimg)
     srcimg = yolonet.postprocess(srcimg, dets)
