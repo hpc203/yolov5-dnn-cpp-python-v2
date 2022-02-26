@@ -6,3 +6,9 @@
 
 由于对特征图添加了维度变换的操作，那么生成onnx文件也发生了改变，新的onnx在百度云盘下载
 链接: https://pan.baidu.com/s/11uF1QeYyu3otrGbMGhw0ZQ  密码: es2w
+
+
+
+2022年2月26日，看到https://github.com/ultralytics/yolov5 在最近更新的v6.1版本的，
+我编写了分别使用OpenCV、ONNXRuntime部署yolov5-v6.1目标检测，包含C++和Python两个版本的程序。
+源码地址是： https://github.com/hpc203/yolov5-v6.1-opencv-onnxrun
